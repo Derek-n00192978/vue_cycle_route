@@ -11,7 +11,7 @@
     <button @click="login()">Submit</button>
     </div>
     <h4 v-else>
-      You are now logged in, Please view the cycle routes available to your style of cycling.
+      Here are some routes for you to select.
     </h4>
     
     </b-col> 
@@ -21,7 +21,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: "/home",
+  name: "/routes",
   components:{
 
   },
