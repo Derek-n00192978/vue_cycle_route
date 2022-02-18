@@ -17,7 +17,7 @@ export default new Router({
     },
     {
       path: "/home",
-      name: "home",
+      name: "/home",
       component: () => import("./pages/Home.vue")
     },
     {
@@ -32,8 +32,13 @@ export default new Router({
     },
     {
       path: "/routes",
-      name: "routes",
+      name: "/routes",
       component: () => import("./pages/routes/Routes.vue")
+    },
+    {
+      path: "/addRoute",
+      name: "addRoute",
+      component: () => import("./pages/routes/addRoutes.vue")
     }
     
   ]
