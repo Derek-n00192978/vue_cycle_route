@@ -2,13 +2,38 @@
   <div class="container">
       <h2 class="bold">Welcome to the Leinster Leisure Cycling Routes Webpage</h2>
       <img src="https://maps.googleapis.com/maps/api/staticmap?center=53.2491581,-6.4148686&zoom=10&size=640x640&maptype=terrain&key=AIzaSyBYhv1UydxYzxt8JnB0P8lxHK9zY-98Gt4" alt="leinster_map">
+      <img src="landingImage" alt="Leinster_map">
+      
     
   </div>    
 </template>
 <script>
-// import axios from '@/config'
+///////////////New Script Sunday 20th Feb///////////////////////
+import axios from '@/config'
+const GOO_MAP_URL = "https://maps.googleapis.com/maps/api/"
+const LEINSTER = "53.2491581,-6.4148686"
+const API_KEY = "AIzaSyBYhv1UydxYzxt8JnB0P8lxHK9zY-98Gt4"
 export default {
   name: "landing",
+  data(){
+    return{
+      image: ""
+    }
+  },
+  mounted() {
+    this.landingImage();
+  },
+  methods: {
+    landingImage() {
+      axios
+           .get(`${GOO_MAP_URL}staticmap?center=${LEINSTER}&zoom=10&size=640x640&maptype=terrain&key=${API_KEY}`)
+           .then((response) => {
+             console.log(response.data)
+             this.image = response.data
+           })
+           .catch((error) => console.log(error));
+    },
+  },
 };
 
 </script>

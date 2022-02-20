@@ -48,6 +48,9 @@
         <label for="pit_stop"><b>Things to see on the route</b></label>
         <input type="text" v-model="form3.pit_stop" placeholder="Pit Stop details" name="pit_stop" required>
         <br>
+        <br>
+        <label for="latlon"><b>Latlon of route</b></label>
+        <input type="text" v-model="form3.latlon" placeholder="Latatuide ref, longdtuide ref" name="latlon" required>
         
 
         
@@ -81,7 +84,8 @@ export default {
               image_title: "",
               map_title: "",
               map_iframe: "",
-              pit_stop: ""
+              pit_stop: "",
+              latlon: ""
           }
       }
   },
@@ -100,7 +104,8 @@ export default {
               image_title: this.form3.image_title,
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
-              pit_stop: this.form3.pit_stop
+              pit_stop: this.form3.pit_stop,
+              latlon: this.form3.latlon
 
           })
           .then(response => {
