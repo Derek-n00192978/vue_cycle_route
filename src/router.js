@@ -36,7 +36,7 @@ export default new Router({
       component: () => import("./pages/routes/Routes.vue")
     },
     {
-      path: "/addRoute",
+      path: "/addRoute/",
       name: "addRoute",
       component: () => import("./pages/routes/addRoutes.vue")
     }

@@ -10,8 +10,8 @@
         <label for="description"><b>Route Description</b></label>
         <input type="text" v-model="form3.description" placeholder="Enter Description" name="description" required />
         <br>
-        <label for="difficulity"><b>Difficulity</b></label>
-        <select class="form-control" id="difficulity" v-model="form3.difficulity" name="difficulity" required>
+        <label for="difficulty"><b>Difficulity</b></label>
+        <select class="form-control" id="difficulty" v-model="form3.difficulty" name="difficulty" required>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
@@ -45,6 +45,9 @@
         <label for="map_iframe"><b>iFrame ref of map</b></label>
         <input type="text" v-model="form3.map_iframe" placeholder="Map iframe" name="map_iframe" required>
         <br>
+        <label for="map_http"><b>HTTP ref of map</b></label>
+        <input type="text" v-model="form3.map_http" placeholder="Map HTTP" name="map_http" required>
+        <br>
         <label for="pit_stop"><b>Things to see on the route</b></label>
         <input type="text" v-model="form3.pit_stop" placeholder="Pit Stop details" name="pit_stop" required>
         <br>
@@ -75,7 +78,7 @@ export default {
           form3:{
               title: "",
               description: "",
-              difficulity: "",
+              difficulty: "",
               poi: "",
               bike: "",
               distance: "",
@@ -84,6 +87,7 @@ export default {
               image_title: "",
               map_title: "",
               map_iframe: "",
+              map_http: "",
               pit_stop: "",
               latlon: ""
           }
@@ -92,10 +96,10 @@ export default {
   methods: {
       addRoute(){
           axios
-          .post('/addRoute', {
+          .post('/route/', {
               title: this.form3.title,
               description: this.form3.description,
-              difficulity: this.form3.difficulity,
+              difficulty: this.form3.difficulty,
               poi: this.form3.poi,
               bike: this.form3.bike,
               distance: this.form3.distance,
@@ -104,6 +108,7 @@ export default {
               image_title: this.form3.image_title,
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
+              map_http: this.form3.map_http,
               pit_stop: this.form3.pit_stop,
               latlon: this.form3.latlon
 
