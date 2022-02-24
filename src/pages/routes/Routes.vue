@@ -82,7 +82,7 @@
 
 
 <script>
-import axios from 'axios'
+import axios from '@/config'
 export default {
   name: "/routes",
   components:{
