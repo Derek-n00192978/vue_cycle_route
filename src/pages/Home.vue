@@ -5,10 +5,12 @@
         Email: <input type="email" v-model="form1.email" /><br>
         Password: <input type="password" v-model="form1.password" />
       <button @click="login()">Submit</button>
+    
     </div>
     <h4 v-else>
       Here are some routes for you to select.
     </h4>
+    <br>
   
        
         <b-card-group columns>
@@ -17,7 +19,7 @@
                 :key="route._id"
             >   
          
-                <p><strong>Title:</strong> {{ route.title }}</p>
+                <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
