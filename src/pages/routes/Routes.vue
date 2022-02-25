@@ -11,6 +11,7 @@
     </h4>
         <b-card-group columns>
             <b-card>
+                <iframe :src='route.map_http' width='500' height='200' frameborder='0' alt="garmin Sugarloaf route"></iframe>
             <p><strong>Title:</strong>       
                 {{ route.title }}
             </p>
@@ -29,12 +30,8 @@
             <p><strong>Starting Point:</strong>
                 {{ route.latlon }}
             </p>
-            <p><strong>Map iframe:</strong>
-                {{ route.map_iframe }}
-            </p>
-            <p><strong>Map http:</strong>
-                {{ route.map_http }}
-            </p>
+            
+            <!--<a :href="{{ route.map_http }}"><strong>Map http:</strong></a>-->
             </b-card>
         </b-card-group>
     </b-col>   
