@@ -17,8 +17,9 @@
         <div class="navbar-nav">
           <router-link class="nav-link" to="/home">Home</router-link>
           <router-link class="nav-link" to="/info">Indepth</router-link>
-          <router-link class="nav-link" to="/routes">Routes</router-link>
+          <!--<router-link class="nav-link" to="/routes">Routes</router-link>-->
           <router-link class="nav-link" to="/addRoute">addRoutes</router-link>
+          <!--<router-link class="nav-link" to="/bike">Bike</router-link>-->
           
           
         </div>

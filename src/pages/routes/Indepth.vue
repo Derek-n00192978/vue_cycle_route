@@ -41,7 +41,7 @@
                 <p class="card-text">For safety reasons a gravel bike would have disk brakes as the conventional rim brakes would be unuseable once the rim went through a muddy puddle.</p>
                 <img src="@/assets/gravelbike.png"  alt="gravel bike">
                 <br>
-                <a herf="#" class="btn btn-primary">Gravel Route</a>
+                <a herf="#" class="btn btn-primary">Gravel Routes</a>
               </div>
             </div>          
         </div>
