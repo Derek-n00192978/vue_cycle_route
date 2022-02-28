@@ -1,5 +1,16 @@
 <template>
+
+    
   <div class="container">
+    <div v-if="!loggedIn"> 
+      <h4>Please Login into your account</h4>   
+        Email: <input type="email" v-model="form1.email" /><br>
+        Password: <input type="password" v-model="form1.password" />
+      <button @click="login()">Submit</button>
+    </div>
+    <h4 v-else>
+      Here is the route you selected.
+    </h4>
       <h3 class="bold">Three of the most popular types of recreational cycling in Ireland are,</h3>
       <h3>Road Cycling, Mountain Biking and Gravel Grinding.</h3>
       <p>We recommend before you set off on any adventure on a bike you make sure of a few basic necessarys. Firstly that the bike is in good working condition.</p>
@@ -30,7 +41,8 @@
                 <p class="card-text"></p>
                 <img src="@/assets/mountainbike.jpg"  alt="mountain bike">
                 <br>
-                <a herf="#" class="btn btn-primary">Mountain Routes</a>
+                <!--Edited to find all mountain bike routes 28/02/2022   -->
+                <p class="btn btn-primary"><router-link :to="{ name:'/bikes', params: { id: route.bike}}">{{ "mountain" }}Mountain Routes</router-link></p>
               </div>
             </div>   
             <div class="col-md-4">
@@ -49,11 +61,62 @@
       
 </template>
 <script>
-// import axios from '@/config'
+import axios from '@/config'
 export default {
   name: "indepth",
-};
 
+components:{
+
+  },
+  props:{
+    loggedIn: Boolean
+  },
+  data(){
+      return{
+          form1: {
+              email: "",
+              password: ""
+          },
+            route: {}
+    }
+  },
+  mounted() {
+      this.getData()
+  },
+  methods:{
+          login() {
+            axios
+              .post('http://localhost:3000/login', {
+                email: this.form1.email,
+                password: this.form1.password
+              })
+              .then(response => {
+                  console.log(response.data.token)
+                  this.$emit('login', response.data.token)
+                  // this.$router.push({name: "landing"})
+                  })
+              .catch(error => {
+                  console.log(error)
+                  console.log(error.response.message)
+              })
+          },
+          getData() {
+            let token = localStorage.getItem('token')
+            axios
+          .get(`/bikes`,
+            {
+              headers: {
+                  "Authorization": `Bearer ${token}`
+              }
+            })
+          .then(response => {
+              console.log(response.data.bike)
+              this.routes = response.data.bike
+          })
+          .catch(error => console.log(error))
+      }        
+  }
+}
 </script>
 <style>
 

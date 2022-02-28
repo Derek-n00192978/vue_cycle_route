@@ -8,7 +8,7 @@
     
     </div>
     <h4 v-else>
-      Here are some routes for you to select.
+      Here are some routes for the bike you selected.
     </h4>
     <br>
   
@@ -19,7 +19,7 @@
                 :key="route._id"
             >   
          
-                <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
+                <p><strong>Title:</strong>  <router-link :to="{ name:'/bikes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>

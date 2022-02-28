@@ -39,6 +39,10 @@ export default new Router({
       path: "/addRoute/",
       name: "addRoute",
       component: () => import("./pages/routes/addRoutes.vue")
+    },{
+      path: "/bikes",
+      name: "/bikes",
+      component: () => import("./pages/routes/Bike.vue")
     }
     
   ]
