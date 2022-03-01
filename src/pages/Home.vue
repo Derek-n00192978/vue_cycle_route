@@ -22,8 +22,8 @@
                 <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
-                <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
-                <p><strong>Starting point:</strong> {{ route.latlon }}</p>
+                
+                
                 <p><strong>Description:</strong> {{ route.description }}</p>
                 
               

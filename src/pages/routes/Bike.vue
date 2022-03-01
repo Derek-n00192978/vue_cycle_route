@@ -19,12 +19,13 @@
                 :key="route._id"
             >   
          
-                <p><strong>Title:</strong>  <router-link :to="{ name:'/bikes', params: { id: route._id}}">{{ route.title }}</router-link></p>
+                <p><strong>Title:</strong> {{ route.title }}</p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
                 <p><strong>Starting point:</strong> {{ route.latlon }}</p>
                 <p><strong>Description:</strong> {{ route.description }}</p>
+                <a :href='route.map_http' target="_blank">Link to Route Map</a>
                 
               
             </b-card>
@@ -65,7 +66,6 @@ export default {
           .then(response => {
               console.log(response.data.token)
               this.$emit('login', response.data.token)
-              // this.$router.push({name: "landing"})
               })
               .catch(error => {
                   console.log(error)
@@ -82,7 +82,7 @@ export default {
               }
           })
           .then(response => {
-              console.log(response.data.bike)
+              console.log(response.data)
               this.routes = response.data
           })
           .catch(error => console.log(error))

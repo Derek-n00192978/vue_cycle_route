@@ -1,6 +1,4 @@
-<template>
-
-    
+<template>    
   <div class="container">
     <div v-if="!loggedIn"> 
       <h4>Please Login into your account</h4>   
@@ -28,7 +26,7 @@
 
                 <img src="@/assets/roadbike.png"  alt="road bike"/>
                 <br>
-                <a herf="#" class="btn btn-primary">Road Routes</a>
+                <p class="btn btn-success-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike}}">{{ "Road" }} Routes</router-link></p>
                 
               </div>
             </div>    
@@ -42,7 +40,7 @@
                 <img src="@/assets/mountainbike.jpg"  alt="mountain bike">
                 <br>
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
-                <p class="btn btn-primary"><router-link :to="{ name:'/bikes', params: { id: route.bike}}">{{ "mountain" }}Mountain Routes</router-link></p>
+                <p class="btn btn-info-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike }}">{{ "Mountain" }} Routes</router-link></p>
               </div>
             </div>   
             <div class="col-md-4">
@@ -53,7 +51,8 @@
                 <p class="card-text">For safety reasons a gravel bike would have disk brakes as the conventional rim brakes would be unuseable once the rim went through a muddy puddle.</p>
                 <img src="@/assets/gravelbike.png"  alt="gravel bike">
                 <br>
-                <a herf="#" class="btn btn-primary">Gravel Routes</a>
+                <!--Edited to find all mountain bike routes 28/02/2022   -->
+                <p class="btn btn-success-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike }}">{{ "Gravel" }} Routes</router-link></p>
               </div>
             </div>          
         </div>
@@ -93,7 +92,7 @@ components:{
               .then(response => {
                   console.log(response.data.token)
                   this.$emit('login', response.data.token)
-                  // this.$router.push({name: "landing"})
+                  
                   })
               .catch(error => {
                   console.log(error)
@@ -103,7 +102,7 @@ components:{
           getData() {
             let token = localStorage.getItem('token')
             axios
-          .get(`/bikes`,
+          .get(`route/bike`,
             {
               headers: {
                   "Authorization": `Bearer ${token}`

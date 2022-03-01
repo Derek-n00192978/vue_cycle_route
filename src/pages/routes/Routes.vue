@@ -7,39 +7,45 @@
       <button @click="login()">Submit</button>
     </div>
     <h4 v-else>
-      Here is the route you selected.
+      Here is route to the {{ route.title }} that you selected.
     </h4>
         <b-card-group columns>
             <b-card>
-            <p><strong>Title:</strong>       
-                {{ route.title }}
-            </p>
-            <p><strong>Distance:</strong>       
-                {{ route.distance }}
-            </p>
-            <p><strong>Bike required:</strong>
-                {{ route.bike }}
-            </p>
-            <p><strong>Description:</strong>
-                {{ route.description }}
-            </p>            
-            <p><strong>Elevation gain:</strong>
-                {{ route.elevation }}
-            </p>
-            <p><strong>Starting Point:</strong>
-                {{ route.latlon }}
-            </p>
-            
-            <!--<a :href="{{ route.map_http }}"><strong>Map http:</strong></a>-->
+                <p><strong>Title:</strong>       
+                    {{ route.title }}
+                </p>
+                <p><strong>Distance:</strong>       
+                    {{ route.distance }} 
+                    <strong>Bike required:</strong>
+                    {{ route.bike }}
+                </p>
+                <p><strong>Difficulty:</strong>
+                    {{ route.difficulty }}
+                  <strong>Elevation gain:</strong>
+                    {{ route.elevation }}
+                </p>
+                <p><strong>Starting location:</strong>
+                    {{ route.latlon }}
+                </p> 
+                 <p><strong>Points of Interest:</strong>
+                    {{ route.poi }}
+                </p>         
+                <a :href='route.map_http' target="_blank">Link to Route Map</a>
+                
+                <p><strong>Description:</strong>
+                    {{ route.description }}
+                </p>            
             </b-card>
         </b-card-group>
-        <iframe :src='route.map_http' width='500' height='200' frameborder='0' alt="garmin Sugarloaf route"></iframe>
+        <!-- {{ route.map_iframe }}  //can we import the whole iframe directly -->
+        <!--<iframe src='iFrame' width='600' height='600' frameborder='0' alt="garmin Sugarloaf route"></iframe>-->
     </b-col>   
  </template>
 
 
 <script>
 import axios from '@/config'
+const IFRAME_URL = "https://connect.garmin.com/modern/course/embed/"
 export default {
   name: "/routes",
   components:{
@@ -92,6 +98,15 @@ export default {
                   console.log(error)
                   console.log(error.response.message)
               })
+      },
+      iFrame() {
+          axios
+          .get(`${IFRAME_URL}`)
+          .then((response) => {
+              console.log(response.data.map_iframe);
+              this.route = response.data.map_iframe;
+          })
+          .catch((error) => console.log(error))
       }      
   }        
 };
