@@ -8,15 +8,15 @@
     
     </div>
     <h4 v-else>
-      Here are some routes for the bike you selected.
+      Here are some routes for the {{$route.params.type}} bike you selected.
     </h4>
     <br>
-  
+ {{$route.params.type}}
        
         <b-card-group columns>
             <b-card   
                 v-for="route in routes"
-                :key="route._id"
+                :key="route.params.type"
             >   
          
                 <p><strong>Title:</strong> {{ route.title }}</p>
@@ -38,7 +38,7 @@
 import axios from '@/config'
 
 export default {
-  name: "/bike",
+  name: "bike",
   components: {},
     
   props:{
@@ -75,7 +75,7 @@ export default {
       getData() {
           let token = localStorage.getItem('token')
           axios
-          .get(`/route/bike`,
+          .get(`route/bike/${this.$route.params.type}`,
           {
               headers: {
                   "Authorization": `Bearer ${token}`

@@ -31,7 +31,8 @@ export default new Router({
       component: () => import("./pages/routes/Indepth.vue")
     },
     {
-      path: "/routes",
+      ///:id added by Mohammed 02/03/2022 to get the route id when selecting a route
+      path: "/routes/:id",
       name: "/routes",
       component: () => import("./pages/routes/Routes.vue")
     },
@@ -39,9 +40,10 @@ export default new Router({
       path: "/addRoute/",
       name: "addRoute",
       component: () => import("./pages/routes/addRoutes.vue")
-    },{
-      path: "/bike",
-      name: "/bike",
+    },
+    {
+      path: "/bike/:type",
+      name: "bike",
       component: () => import("./pages/routes/Bike.vue")
     }
     

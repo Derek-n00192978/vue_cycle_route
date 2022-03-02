@@ -7,8 +7,8 @@
       <button @click="login()">Submit</button>
     </div>
     <h4 v-else>
-      Here is route to the {{ route.title }} that you selected.
-    </h4>
+      Here is the route to 
+       {{ route.title }}.</h4>
         <b-card-group columns>
             <b-card>
                 <p><strong>Title:</strong>       
@@ -27,14 +27,10 @@
                 <p><strong>Starting location:</strong>
                     {{ route.latlon }}
                 </p> 
-                 <p><strong>Points of Interest:</strong>
-                    {{ route.poi }}
-                </p>         
+                 <p><strong>Points of Interest:</strong> {{ route.poi }} </p>         
                 <a :href='route.map_http' target="_blank">Link to Route Map</a>
                 
-                <p><strong>Description:</strong>
-                    {{ route.description }}
-                </p>            
+                <p><strong>Description:</strong> {{ route.description }} </p>            
             </b-card>
         </b-card-group>
         <!-- {{ route.map_iframe }}  //can we import the whole iframe directly -->
@@ -92,7 +88,7 @@ export default {
           .then(response => {
               console.log(response.data.token)
               this.$emit('login', response.data.token)
-              // this.$router.push({name: "landing"})
+              
               })
               .catch(error => {
                   console.log(error)

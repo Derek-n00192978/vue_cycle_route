@@ -6,9 +6,7 @@
         Password: <input type="password" v-model="form1.password" />
       <button @click="login()">Submit</button>
     </div>
-    <h4 v-else>
-      Here is the route you selected.
-    </h4>
+    <h4 v-else></h4>
       <h3 class="bold">Three of the most popular types of recreational cycling in Ireland are,</h3>
       <h3>Road Cycling, Mountain Biking and Gravel Grinding.</h3>
       <p>We recommend before you set off on any adventure on a bike you make sure of a few basic necessarys. Firstly that the bike is in good working condition.</p>
@@ -26,7 +24,7 @@
 
                 <img src="@/assets/roadbike.png"  alt="road bike"/>
                 <br>
-                <p class="btn btn-success-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike}}">{{ "Road" }} Routes</router-link></p>
+                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></p>
                 
               </div>
             </div>    
@@ -40,7 +38,7 @@
                 <img src="@/assets/mountainbike.jpg"  alt="mountain bike">
                 <br>
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
-                <p class="btn btn-info-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike }}">{{ "Mountain" }} Routes</router-link></p>
+                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}">Mountain Routes</router-link></p>
               </div>
             </div>   
             <div class="col-md-4">
@@ -52,7 +50,7 @@
                 <img src="@/assets/gravelbike.png"  alt="gravel bike">
                 <br>
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
-                <p class="btn btn-success-light, text-warning"><router-link :to="{ name:'/bike', params: { id: route.bike }}">{{ "Gravel" }} Routes</router-link></p>
+                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}">Gravel Routes</router-link></p>
               </div>
             </div>          
         </div>
@@ -102,15 +100,16 @@ components:{
           getData() {
             let token = localStorage.getItem('token')
             axios
-          .get(`route/bike`,
+            //change for Mohammed
+          .get(`/route/bike/${this.$route.params.type}`,
             {
               headers: {
                   "Authorization": `Bearer ${token}`
               }
             })
           .then(response => {
-              console.log(response.data.bike)
-              this.routes = response.data.bike
+              console.log(response.data)
+              this.route = response.data
           })
           .catch(error => console.log(error))
       }        
