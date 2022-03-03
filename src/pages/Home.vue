@@ -18,11 +18,14 @@
                 v-for="route in routes"
                 :key="route._id"
             >   
-         
+               
+                <b-card-body>
                 <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>               
                 <p><strong>Description:</strong> {{ route.description }}</p>
+                </b-card-body>
+
             </b-card>
       </b-card-group>
   </b-col>  

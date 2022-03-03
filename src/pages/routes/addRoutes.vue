@@ -6,76 +6,78 @@
             Password: <input type="password" v-model="form1.password" />
         <button @click="login()">Submit</button>    
         </div>
-        <h4 v-else>
-        Here are some routes for the bike you selected.
-        </h4>
+        <h4 class="text-center display-4 my-4" v-else>Add to the Leinster Leisure Cycle Application</h4>
         <br>
-        <form action="action_page.php" style="border:1px solid #ccc">
-        
-            <h2>Add a Route to the Leinster Leisure Cycle Route Application</h2>
-            <p>Please fill in this form to create a Route.</p>
-            <hr>
-            <label for="title"><b>Title</b></label>
-            <input type="text" v-model="form3.title" placeholder="Enter Title" name="title" required />
-            <br>
-            <label for="description"><b>Route Description</b></label>
-            <input type="text" v-model="form3.description" placeholder="Enter Description" name="description" required />
-            <br>
-            <label for="difficulty"><b>Difficulity</b></label>
-            <select class="form-control" id="difficulty" v-model="form3.difficulty" name="difficulty" required>
-                <option>Easy</option>
-                <option>Medium</option>
-                <option>Hard</option>
-            </select>   
-            <br>
-            <label for="poi"><b>Points of Interest</b></label>
-            <input type="text" v-model="form3.poi" placeholder="Enter Points of Interest" name="poi">
-            <br>
-            <label for="bike"><b>Type of bike required</b></label>
-            <select class="form-control" id="bike" v-model="form3.bike" name="bike" required>
-                <option>Mountain</option>
-                <option>Gravel</option>
-                <option>Road</option>
-            </select>       
-            <br>
-            <label for="distance"><b>Distance of Route</b></label>
-            <input type="text" v-model="form3.distance" placeholder="Distance" name="distance" required>
-            <br>
-            <label for="duration"><b>Possible Duration of spin</b></label>
-            <input type="text" v-model="form3.duration" placeholder="Duration" name="duration" required>
-            <br>
-            <label for="elevation"><b>Elevation gain over route</b></label>
-            <input type="text" v-model="form3.elevation" placeholder="Elevation gain in meters" name="elevation" required>
-            <br>
-            <label for="image_title"><b>Image title</b></label>
-            <input type="text" v-model="form3.image_title" placeholder="Name of Image" name="image_title" required>
-            <br>
-            <label for="map_title"><b>Title of Map</b></label>
-            <input type="text" v-model="form3.map_title" placeholder="Title of map" name="map_title" required>
-            <br>
-            <label for="map_iframe"><b>iFrame ref of map</b></label>
-            <input type="text" v-model="form3.map_iframe" placeholder="Map iframe" name="map_iframe" required>
-            <br>
-            <label for="map_http"><b>HTTP ref of map</b></label>
-            <input type="text" v-model="form3.map_http" placeholder="Map HTTP" name="map_http" required>
-            <br>
-            <label for="pit_stop"><b>Things to see on the route</b></label>
-            <input type="text" v-model="form3.pit_stop" placeholder="Pit Stop details" name="pit_stop" required>
-            <br>
-            <br>
-            <label for="latlon"><b>Latlon of route</b></label>
-            <input type="text" v-model="form3.latlon" placeholder="Latatuide ref, longdtuide ref" name="latlon" required>
-            
-
-            
-
-            <div class="clearfix">
-            <button type="button" class="cancelbtn"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
-            <button type="submit" class="signupbtn" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
+        <div class="row">
+            <div class="col-md-8 m-auto">
+                <form action="action_page.php" style="border:2px solid #ccc" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file mb3">
+                        <p class="text-center">Please fill in this form to create a Route.</p>
+                        <hr>
+                        <label for="title"><b>Title :</b></label>
+                        <input type="text" v-model="form3.title" placeholder="Enter Title" name="title" required class="float-right"/>
+                        <br>
+                        <label for="description"><b>Route Description :</b></label>
+                        <input type="text" v-model="form3.description" placeholder="Enter Description" name="description" required  class="float-right"/>
+                        <br>
+                        <label for="difficulty"><b>Difficulity :</b>
+                        <select class="form-control floatright" id="difficulty" v-model="form3.difficulty" name="difficulty" required>
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                        </select>   </label>
+                        <br>
+                        <label for="poi"><b>Points of Interest :</b></label>
+                        <input type="text" v-model="form3.poi" placeholder="Enter Points of Interest" name="poi" class="float-right">
+                        <br>
+                        <label for="bike"><b>Type of bike required :</b>
+                        <select class="form-control float-right" id="bike" v-model="form3.bike" name="bike" required>
+                            <option>Mountain</option>
+                            <option>Gravel</option>
+                            <option>Road</option>
+                        </select> </label>      
+                        <br>
+                        <label for="distance"><b>Distance of Route :</b></label>
+                        <input type="text" v-model="form3.distance" placeholder="Distance" name="distance" required class="float-right">
+                        <br>
+                        <label for="duration"><b>Possible Duration of spin :</b></label>
+                        <input type="text" v-model="form3.duration" placeholder="Duration" name="duration" required class="float-right">
+                        <br>
+                        <label for="elevation"><b>Elevation gain over route :</b></label>
+                        <input type="text" v-model="form3.elevation" placeholder="Elevation gain in meters" name="elevation" required class="float-right">
+                        <br>
+                        <label for="image_title"><b>Image title :</b></label>
+                        <input type="text" v-model="form3.image_title" placeholder="Name of Image" name="image_title" required class="float-right">
+                        <br>
+                        <!--Added to load image to database 03/03/2022-->                     
+                        <label for="image_file"><b>Choose file for image :</b></label>
+                        <!--<input type="keyFile" v-model="form3.image_file" placeholder="Image_file" class="float-right">-->
+                        <!--End of Load image to database 03/03/2022-->
+                        <br>
+                        <label for="map_title"><b>Title of Map :</b></label>
+                        <input type="text" v-model="form3.map_title" placeholder="Title of map" name="map_title" required class="float-right">
+                        <br>
+                        <label for="map_iframe"><b>iFrame ref of map :</b></label>
+                        <input type="text" v-model="form3.map_iframe" placeholder="Map iframe" name="map_iframe" required class="float-right">
+                        <br>
+                        <label for="map_http"><b>HTTP ref of map :</b></label>
+                        <input type="text" v-model="form3.map_http" placeholder="Map HTTP" name="map_http" required class="float-right">
+                        <br>
+                        <label for="pit_stop"><b>Things to see on the route :</b></label>
+                        <input type="text" v-model="form3.pit_stop" placeholder="Pit Stop details" name="pit_stop" required class="float-right">
+                        <br>
+                        <label for="latlon"><b>Latlon of route :</b></label>
+                        <input type="text" v-model="form3.latlon" placeholder="Latatuide/longdtuide" name="latlon" required class="float-right">         
+                        <div class="clearfix">
+                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
+                        <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
+                        
+                        </div>
+                    </div>
+                </form>
             </div>
-        
-        </form>  
-    </div>      
+        </div>  
+    </div>          
 </template>
 
 <script>
@@ -104,6 +106,7 @@ export default {
               duration: "",
               elevation: "",
               image_title: "",
+              image_file: "",
               map_title: "",
               map_iframe: "",
               map_http: "",
@@ -159,6 +162,7 @@ export default {
               duration: this.form3.duration,
               elevation: this.form3.elevation,
               image_title: this.form3.image_title,
+              image_file: this.form3.image_file,
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
               map_http: this.form3.map_http,
@@ -178,5 +182,5 @@ export default {
 </script>
 
 <style>
-
+    
 </style>
