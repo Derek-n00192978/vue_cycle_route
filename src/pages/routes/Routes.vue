@@ -9,8 +9,10 @@
     <h4 v-else>
       Here is the route to 
        {{ route.title }}.</h4>
-        <b-card-group columns>
-            <b-card>
+       <div class="row">
+        
+        <div class="col-md-6">        
+            <b-card :class="route.bike">
                 <p><strong>Title:</strong>       
                     {{ route.title }}
                 </p>
@@ -31,10 +33,14 @@
                 <a :href='route.map_http' target="_blank">Link to Route Map</a>
                 
                 <p><strong>Description:</strong> {{ route.description }} </p>            
-            </b-card>
-        </b-card-group>
-        <!-- {{ route.map_iframe }}  //can we import the whole iframe directly -->
-        <!--<iframe src='iFrame' width='600' height='600' frameborder='0' alt="garmin Sugarloaf route"></iframe>-->
+            </b-card>        
+        </div>
+        <div class="col-md-6">
+            <iframe src='IFRAME_URL$map_iframe'  width='465' height='478' frameborder='0'></iframe>
+           <iframe src='https://connect.garmin.com/modern/course/embed/90187398' width='465' height='478' frameborder='0'></iframe>
+        </div>
+       </div>
+       
     </b-col>   
  </template>
 
@@ -79,35 +85,49 @@ export default {
             })
             .catch(error => console.log(error))                
         },
-      login() {
-          axios
-          .post('http://localhost:3000/login', {
-              email: this.form1.email,
-              password: this.form1.password
-          })
-          .then(response => {
-              console.log(response.data.token)
-              this.$emit('login', response.data.token)
-              
-              })
-              .catch(error => {
-                  console.log(error)
-                  console.log(error.response.message)
-              })
-      },
-      iFrame() {
-          axios
-          .get(`${IFRAME_URL}`)
-          .then((response) => {
-              console.log(response.data.map_iframe);
-              this.route = response.data.map_iframe;
-          })
-          .catch((error) => console.log(error))
-      }      
+        login() {
+            axios
+            .post('http://localhost:3000/login', {
+                email: this.form1.email,
+                password: this.form1.password
+            })
+            .then(response => {
+                console.log(response.data.token)
+                this.$emit('login', response.data.token)
+                
+                })
+                .catch(error => {
+                    console.log(error)
+                    console.log(error.response.message)
+                })
+        },
+        iFrame() {
+            axios
+            .get(`${IFRAME_URL}map_iframe`)
+            .then((response) => {
+                console.log(response.data.map_iframe);
+                this.response = response.data.map_iframe;
+            })
+            .catch((error) => console.log(error))
+        }
+      
   }        
 };
 </script>
 
 <style>
+.card {
+  border-width: .5rem;
+  border-radius: .5rem;
+}
+.Road {
+  border-color: rgb(53, 49, 49);  
+}
+.Gravel {
+  border-color: rgb(70, 155, 155);
+}
+.Mountain {
+  border-color: rgb(37, 248, 37);
+}
 
 </style>

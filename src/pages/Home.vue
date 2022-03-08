@@ -8,18 +8,19 @@
     
     </div>
     <h4 v-else>
-      Here are some routes for you to select.
+      Here are some routes for you to select, color-coded to a bike type.
     </h4>
     <br>
   
        
-        <b-card-group columns>
+        <b-card-group columns >
             <b-card   
                 v-for="route in routes"
-                :key="route._id"
+                :key="route._id" 
+                :class="route.bike"              
             >   
                
-                <b-card-body>
+                <b-card-body >
                 <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>               
@@ -92,5 +93,19 @@ export default {
 </script>
 
 <style>
+.card {
+    border-width: .5rem;
+    border-radius: .5rem;
+}
+.Road {
+  border-color: rgb(53, 49, 49);  
+}
+.Gravel {
+  border-color: rgb(70, 155, 155);
+}
+.Mountain {
+  border-color: rgb(37, 248, 37);
+}
+
 
 </style>
