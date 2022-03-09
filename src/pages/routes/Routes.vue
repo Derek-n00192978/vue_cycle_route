@@ -9,8 +9,7 @@
     <h4 v-else>
       Here is the route to 
        {{ route.title }}.</h4>
-       <div class="row">
-        
+       <div class="row">        
         <div class="col-md-6">        
             <b-card :class="route.bike">
                 <p><strong>Title:</strong>       
@@ -36,8 +35,7 @@
             </b-card>        
         </div>
         <div class="col-md-6">
-            <iframe src='IFRAME_URL$map_iframe'  width='465' height='478' frameborder='0'></iframe>
-           <iframe src='https://connect.garmin.com/modern/course/embed/90187398' width='465' height='478' frameborder='0'></iframe>
+            <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
         </div>
        </div>
        
@@ -47,7 +45,6 @@
 
 <script>
 import axios from '@/config'
-const IFRAME_URL = "https://connect.garmin.com/modern/course/embed/"
 export default {
   name: "/routes",
   components:{
@@ -62,6 +59,7 @@ export default {
               email: "",
               password: ""
           },
+          iframeURL: "https://connect.garmin.com/modern/course/embed/",
             route: {}
     }
   },
@@ -100,15 +98,6 @@ export default {
                     console.log(error)
                     console.log(error.response.message)
                 })
-        },
-        iFrame() {
-            axios
-            .get(`${IFRAME_URL}map_iframe`)
-            .then((response) => {
-                console.log(response.data.map_iframe);
-                this.response = response.data.map_iframe;
-            })
-            .catch((error) => console.log(error))
         }
       
   }        

@@ -1,8 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-//import { component } from "vue/types/umd";
-
-
 
 Vue.use(Router);
 
@@ -42,7 +39,7 @@ export default new Router({
       component: () => import("./pages/routes/addRoutes.vue")
     },
     {
-      path: "/bike/:type",
+      path: "/route/bike/:type",
       name: "bike",
       component: () => import("./pages/routes/Bike.vue")
     }

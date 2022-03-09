@@ -8,7 +8,7 @@
     
     </div>
     <h4 v-else>
-      Here are some routes for you to select, color-coded to a bike type.
+      Here are some routes for you to select from, color-coded to a bike type.
     </h4>
     <br>
   

@@ -8,18 +8,19 @@
     
     </div>
     <h4 v-else>
-      Here are some routes for the {{$route.params.type}} bike you selected.
+      Here are some routes for a {{$route.params.type}} bike.
     </h4>
     <br>
- {{$route.params.type}}
+ 
        
         <b-card-group columns>
             <b-card   
                 v-for="route in routes"
-                :key="route.params.type"
+                :key="route._id"
+                :class="route.bike"
             >   
          
-                <p><strong>Title:</strong> {{ route.title }}</p>
+                <p><strong>Title:</strong> <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
@@ -36,7 +37,6 @@
 
 <script>
 import axios from '@/config'
-
 export default {
   name: "bike",
   components: {},
@@ -47,6 +47,7 @@ export default {
   data(){
       return{
            routes: [],
+           
            form1: {
               email: "",
               password: ""              
@@ -86,12 +87,25 @@ export default {
               this.routes = response.data
           })
           .catch(error => console.log(error))
-      }   
+      } 
       
   }
 };
 </script>
 
 <style>
+.card {
+  border-width: .5rem;
+  border-radius: .5rem;
+}
+.Road {
+  border-color: rgb(53, 49, 49);  
+}
+.Gravel {
+  border-color: rgb(70, 155, 155);
+}
+.Mountain {
+  border-color: rgb(37, 248, 37);
+}
 
 </style>
