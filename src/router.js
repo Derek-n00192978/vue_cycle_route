@@ -42,6 +42,11 @@ export default new Router({
       path: "/route/bike/:type",
       name: "bike",
       component: () => import("./pages/routes/Bike.vue")
+    },
+    {
+      path:"/image/",
+      name: "/image",
+      component: () => import("./pages/routes/Image.vue")
     }
     
   ]

@@ -6,7 +6,8 @@
             Password: <input type="password" v-model="form1.password" />
         <button @click="login()">Submit</button>    
         </div>
-        <h4 class="text-center display-4 my-4" v-else>Add to the Leinster Leisure Cycle Application</h4>
+        <p class="text-center" v-else>Add a Route to the Leinster Leisure Cycle Route Application by filling out the form below</p>
+        <p class="text-center">Please Note: To add an image to your route please visit the addImage page before adding a route.</p>
         <br>
         <div class="row">
             <div class="col-md-8 m-auto">
@@ -72,7 +73,7 @@
                         <label for="descriptionLong"><b>Description Extended :</b></label>
                         <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
                         <div class="clearfix">
-                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
+                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addImage()"><router-link :to="{name:'/addRoute'} ">AddRoute</router-link></button>
                         <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
                         
                         </div>
