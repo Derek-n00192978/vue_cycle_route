@@ -30,12 +30,16 @@
                 </p> 
                  <p><strong>Points of Interest:</strong> {{ route.poi }} </p>         
                 <a :href='route.map_http' target="_blank">Link to Route Map</a>
-                
-                <p><strong>Description:</strong> {{ route.description }} </p>            
+                <p><strong>Description:</strong> {{ route.description }} </p>              
             </b-card>        
         </div>
         <div class="col-md-6">
             <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
+        </div>
+        <div class="col">
+          <b-card :class="route.bike">
+            <p><strong>Description Extended:</strong> {{ route.descriptionLong }} </p>
+          </b-card>  
         </div>
        </div>
        

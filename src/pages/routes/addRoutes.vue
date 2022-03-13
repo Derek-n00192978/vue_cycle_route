@@ -18,7 +18,7 @@
                         <input type="text" v-model="form3.title" placeholder="Enter Title" name="title" required class="float-right"/>
                         <br>
                         <label for="description"><b>Route Description :</b></label>
-                        <input type="text" v-model="form3.description" placeholder="Enter Description" name="description" required  class="float-right"/>
+                        <input type="text" v-model="form3.description" placeholder="Enter Short Description" name="description" required  class="float-right"/>
                         <br>
                         <label for="difficulty"><b>Difficulity :</b>
                         <select class="form-control floatright" id="difficulty" v-model="form3.difficulty" name="difficulty" required>
@@ -57,8 +57,8 @@
                         <label for="map_title"><b>Title of Map :</b></label>
                         <input type="text" v-model="form3.map_title" placeholder="Title of map" name="map_title" required class="float-right">
                         <br>
-                        <label for="map_iframe"><b>iFrame ref of map :</b></label>
-                        <input type="text" v-model="form3.map_iframe" placeholder="Map iframe" name="map_iframe" required class="float-right">
+                        <label for="map_iframe"><b>iFrame no.ref of map :</b></label>
+                        <input type="text" v-model="form3.map_iframe" placeholder="Map iframe no." name="map_iframe" required class="float-right">
                         <br>
                         <label for="map_http"><b>HTTP ref of map :</b></label>
                         <input type="text" v-model="form3.map_http" placeholder="Map HTTP" name="map_http" required class="float-right">
@@ -67,7 +67,10 @@
                         <input type="text" v-model="form3.pit_stop" placeholder="Pit Stop details" name="pit_stop" required class="float-right">
                         <br>
                         <label for="latlon"><b>Latlon of route :</b></label>
-                        <input type="text" v-model="form3.latlon" placeholder="Latatuide/longdtuide" name="latlon" required class="float-right">         
+                        <input type="text" v-model="form3.latlon" placeholder="Latatuide/longdtuide" name="latlon" required class="float-right">
+                        <br>
+                        <label for="descriptionLong"><b>Description Extended :</b></label>
+                        <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
                         <div class="clearfix">
                             <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
                         <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
@@ -111,7 +114,8 @@ export default {
               map_iframe: "",
               map_http: "",
               pit_stop: "",
-              latlon: ""
+              latlon: "",
+              descriptionLong: "",
           }
       }
   },
@@ -167,7 +171,8 @@ export default {
               map_iframe: this.form3.map_iframe,
               map_http: this.form3.map_http,
               pit_stop: this.form3.pit_stop,
-              latlon: this.form3.latlon
+              latlon: this.form3.latlon,
+              descriptionLong: this.form3.descriptionLong
 
           })
           .then(response => {
