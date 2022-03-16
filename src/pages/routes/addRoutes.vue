@@ -11,7 +11,7 @@
         <br>
         <div class="row">
             <div class="col-md-8 m-auto">
-                <form action="action_page.php" style="border:2px solid #ccc" method="POST" enctype="multipart/form-data">
+                <form style="border:2px solid #ccc" method="POST" >
                     <div class="custom-file mb3">
                         <p class="text-center">Please fill in this form to create a Route.</p>
                         <hr>
@@ -73,7 +73,7 @@
                         <label for="descriptionLong"><b>Description Extended :</b></label>
                         <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
                         <div class="clearfix">
-                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/addRoute'} ">AddRoute</router-link></button>
+                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
                         <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
                         
                         </div>
@@ -87,7 +87,7 @@
 <script>
 import axios from '@/config'
 export default {
-  name: "addRoute",
+  name: "addRouteForm",
   components:{
       
   },
@@ -143,7 +143,7 @@ export default {
       getData() {
           let token = localStorage.getItem('token')
           axios
-          .get(`/route/bike`,
+          .get(`addRoute`,
           {
               headers: {
                   "Authorization": `Bearer ${token}`
@@ -154,7 +154,7 @@ export default {
               this.routes = response.data
           })
           .catch(error => console.log(error))
-      },   
+      },  
       addRoute(){
           axios
           .post('/route/', {

@@ -14,7 +14,7 @@ export default new Router({
     },
     {
       path: "/home",
-      name: "/home",
+      name: "home",
       component: () => import("./pages/Home.vue")
     },
     {
@@ -30,12 +30,12 @@ export default new Router({
     {
       ///:id added by Mohammed 02/03/2022 to get the route id when selecting a route
       path: "/routes/:id",
-      name: "/routes",
+      name: "routes",
       component: () => import("./pages/routes/Routes.vue")
     },
     {
-      path: "/addRoute/",
-      name: "addRoute",
+      path: "/addRoute",
+      name: "addRouteForm",
       component: () => import("./pages/routes/addRoutes.vue")
     },
     {

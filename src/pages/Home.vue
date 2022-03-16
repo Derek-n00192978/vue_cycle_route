@@ -50,7 +50,7 @@ import axios from '@/config'
 
 
 export default {
-  name: "/home",
+  name: "home",
   
   components: {},
     

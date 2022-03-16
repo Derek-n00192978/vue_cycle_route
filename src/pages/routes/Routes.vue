@@ -41,10 +41,10 @@
           </b-card> 
           <br>
           <div class="row">
+          
             <div class="col-md-6">
-              <img :src="ihttpURL + route.image_http" frameborder='0'>
-            </div>
-            <div class="col-md-6">
+<!-- <iframe src="https://www.google.com/maps/embed?pb=!4v1647433013434!6m8!1m7!1sAfuOdkWo69-0vmO97TVumw!2m2!1d53.18765852368483!2d-6.100385068423282!3f228.55!4f-7.489999999999995!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
               <iframe :src="ihttpURL + route.image_http" frameborder='0'></iframe>
             </div>
           </div>
@@ -54,11 +54,16 @@
     </b-col>   
  </template>
 
+<!-- 
+ PORT=3000
+DB_ATLAS_URL=mongodb+srv://Derek:Nissan2021@cluster0.fnk6k.mongodb.net/vue-leinster-app?retryWrites=true&w=majority
+CLOUDINARY_URL=cloudinary://189593569962748:3ma7xJG-9PvAerVTJ4oFjWks_-I@del599 -->
+
 
 <script>
 import axios from '@/config'
 export default {
-  name: "/routes",
+  name: "routes",
   components:{
 
   },
