@@ -9,9 +9,11 @@
     </div>
     <h4 v-else>
       Here are some routes for a {{$route.params.type}} bike.
-    </h4>
+    </h4> 
+   
     <br>
- 
+    <p class="btn btn-outline-warning" @click="cancel()">Back to all Routes</p>
+    
        
         <b-card-group columns>
             <b-card   
@@ -87,7 +89,9 @@ export default {
               this.routes = response.data
           })
           .catch(error => console.log(error))
-      } 
+      },cancel() {
+            this.$router.go(-1)
+        } 
       
   }
 };
@@ -101,11 +105,14 @@ export default {
 .Road {
   border-color: rgb(53, 49, 49);  
 }
+
 .Gravel {
   border-color: rgb(70, 155, 155);
 }
+
 .Mountain {
-  border-color: rgb(37, 248, 37);
+  border-color: rgb(33, 112, 14); 
+  color:  rgb(33, 112, 14); 
 }
 
 </style>

@@ -51,7 +51,7 @@
                         <input type="text" v-model="form3.image_title" placeholder="Name of Image" name="image_title" required class="float-right">
                         <br>
                         <!--Added to load image to database 03/03/2022-->                     
-                        <label for="image_file"><b>Choose file for image :</b></label>
+                        <!-- <label for="image_file"><b>Choose file for image :</b></label> -->
                         <!--<input type="keyFile" v-model="form3.image_file" placeholder="Image_file" class="float-right">-->
                         <!--End of Load image to database 03/03/2022-->
                         <br>
@@ -73,7 +73,7 @@
                         <label for="descriptionLong"><b>Description Extended :</b></label>
                         <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
                         <div class="clearfix">
-                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addImage()"><router-link :to="{name:'/addRoute'} ">AddRoute</router-link></button>
+                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/addRoute'} ">AddRoute</router-link></button>
                         <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
                         
                         </div>
@@ -110,7 +110,7 @@ export default {
               duration: "",
               elevation: "",
               image_title: "",
-              image_file: "",
+           
               map_title: "",
               map_iframe: "",
               map_http: "",
@@ -167,7 +167,7 @@ export default {
               duration: this.form3.duration,
               elevation: this.form3.elevation,
               image_title: this.form3.image_title,
-              image_file: this.form3.image_file,
+             
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
               map_http: this.form3.map_http,

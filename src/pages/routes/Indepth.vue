@@ -24,7 +24,7 @@
 
                 <img src="@/assets/roadbike.png"  alt="road bike"/>
                 <br>
-                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></p>
+                <p class="btn Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></p>
                 
               </div>
             </div>    
@@ -38,7 +38,7 @@
                 <img src="@/assets/mountainbike.jpg"  alt="mountain bike">
                 <br>
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
-                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}">Mountain Routes</router-link></p>
+                <p class="btn Mountain"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}">Mountain Routes</router-link></p>
               </div>
             </div>   
             <div class="col-md-4">
@@ -50,7 +50,7 @@
                 <img src="@/assets/gravelbike.png"  alt="gravel bike">
                 <br>
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
-                <p class="btn btn-outline-warning"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}">Gravel Routes</router-link></p>
+                <p class="btn Gravel"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}">Gravel Routes</router-link></p>
               </div>
             </div>          
         </div>
@@ -117,6 +117,21 @@ components:{
 }
 </script>
 <style>
+
+.Road {
+  border-color: rgb(53, 49, 49);  
+}
+
+.Gravel {
+  border-color: rgb(179, 43, 160);
+}
+
+.Mountain {
+  border-color: rgb(33, 112, 14); 
+  color:  rgb(33, 112, 14); 
+}
+
+
 
 
 </style>

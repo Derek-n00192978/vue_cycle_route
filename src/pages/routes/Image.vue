@@ -16,11 +16,7 @@
                     <label class="file-upload-container" for="file-upload"><b>Select an Image</b>
                     </label>
                     <input id="file-upload" type="file" style="display:none;" name="image" required class="float-right"/>
-                    <div class="clearfix">
-                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addImage()"><router-link :to="{name:'/addRoute'} ">AddImage</router-link></button>
-                        <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
-                        
-                        </div>                     
+                                    
 
                 </b-card>
             </b-card-group> 

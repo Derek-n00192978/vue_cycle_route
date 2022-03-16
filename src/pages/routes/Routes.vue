@@ -7,8 +7,7 @@
       <button @click="login()">Submit</button>
     </div>
     <h4 v-else>
-      Here is the route to 
-       {{ route.title }}.</h4>
+      Here is the route to {{ route.title }}.</h4>
        <div class="row">        
         <div class="col-md-6">        
             <b-card :class="route.bike">
@@ -33,13 +32,22 @@
                 <p><strong>Description:</strong> {{ route.description }} </p>              
             </b-card>        
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 float-right">
             <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
         </div>
         <div class="col">
           <b-card :class="route.bike">
             <p><strong>Description Extended:</strong> {{ route.descriptionLong }} </p>
-          </b-card>  
+          </b-card> 
+          <br>
+          <div class="row">
+            <div class="col-md-6">
+              <img :src="ihttpURL + route.image_http" frameborder='0'>
+            </div>
+            <div class="col-md-6">
+              <iframe :src="ihttpURL + route.image_http" frameborder='0'></iframe>
+            </div>
+          </div>
         </div>
        </div>
        
@@ -64,6 +72,7 @@ export default {
               password: ""
           },
           iframeURL: "https://connect.garmin.com/modern/course/embed/",
+          ihttpURL: "https://www.google.com/maps/",
             route: {}
     }
   },

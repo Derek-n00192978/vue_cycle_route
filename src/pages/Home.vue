@@ -11,8 +11,15 @@
       Here are some routes for you to select from, color-coded to a bike type.
     </h4>
     <br>
-  
-       
+
+    <div class="route_type_navbar">
+      <span class="Gravel"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}">Gravel Routes</router-link></span>
+      <span class="Mountain"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}">Mountain Routes</router-link></span>
+      <span class="Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></span>
+    </div>  
+    <br>
+
+
         <b-card-group columns >
             <b-card   
                 v-for="route in routes"
@@ -21,7 +28,11 @@
             >   
                
                 <b-card-body >
-                <p><strong>Title:</strong>  <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
+                  <router-link :to="{ name:'/routes', params: { id: route._id}}">
+
+                 <p> {{ route.title }} </p>
+
+                  </router-link>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>               
                 <p><strong>Description:</strong> {{ route.description }}</p>
@@ -29,6 +40,7 @@
 
             </b-card>
       </b-card-group>
+      
   </b-col>  
  </template>
 
@@ -36,8 +48,10 @@
 <script>
 import axios from '@/config'
 
+
 export default {
   name: "/home",
+  
   components: {},
     
   props:{
@@ -49,8 +63,8 @@ export default {
            form1: {
               email: "",
               password: ""              
-          }
-    }
+          },
+      }
   },
   mounted() {
       this.getData()
@@ -98,14 +112,34 @@ export default {
     border-radius: .5rem;
 }
 .Road {
-  border-color: rgb(53, 49, 49);  
+  border-color: rgb(53, 49, 49);
+  color:   rgb(53, 49, 49);
 }
+
 .Gravel {
-  border-color: rgb(70, 155, 155);
+  border-color: rgb(70, 155, 155); 
+  color: rgb(70, 155, 155);
 }
+
 .Mountain {
-  border-color: rgb(37, 248, 37);
+  border-color: rgb(33, 112, 14); 
+  color:  rgb(33, 112, 14); 
 }
+
+span {
+  border: solid 1px red;
+  margin: 0px 10px 50px 0px; 
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+a {
+   color: inherit;
+}
+a:hover{
+  color: inherit;
+}   
+
 
 
 </style>

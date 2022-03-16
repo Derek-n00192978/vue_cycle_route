@@ -13,6 +13,9 @@
         <label for="email"><b>Email</b></label>
         <input type="text" v-model="form2.email" placeholder="Enter Email" name="email" required>
         <br>
+        <label for="validateEmail"><b>RepeatEmail</b></label>
+        <input type="text" v-model="form2.validateEmail" placeholder="Repeat Email" name="validateEmail" required>
+        <br>
         <label for="psw"><b>Password</b></label>
         <input type="password" v-model="form2.password" placeholder="Enter Password" name="psw" required>
         <br>
