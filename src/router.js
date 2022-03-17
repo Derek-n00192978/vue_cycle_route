@@ -30,7 +30,7 @@ export default new Router({
     {
       ///:id added by Mohammed 02/03/2022 to get the route id when selecting a route
       path: "/routes/:id",
-      name: "routes",
+      name: "/routes",
       component: () => import("./pages/routes/Routes.vue")
     },
     {

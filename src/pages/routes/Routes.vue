@@ -43,9 +43,7 @@
           <div class="row">
           
             <div class="col-md-6">
-<!-- <iframe src="https://www.google.com/maps/embed?pb=!4v1647433013434!6m8!1m7!1sAfuOdkWo69-0vmO97TVumw!2m2!1d53.18765852368483!2d-6.100385068423282!3f228.55!4f-7.489999999999995!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-
-              <iframe :src="ihttpURL + route.image_http" frameborder='0'></iframe>
+              <iframe :src="ihttpURL + route.image_http" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -77,7 +75,7 @@ export default {
               password: ""
           },
           iframeURL: "https://connect.garmin.com/modern/course/embed/",
-          ihttpURL: "https://www.google.com/maps/",
+          ihttpURL: "https://www.google.com/maps/embed?",
             route: {}
     }
   },
@@ -103,7 +101,7 @@ export default {
         },
         login() {
             axios
-            .post('http://localhost:3000/login', {
+            .post('/login', {
                 email: this.form1.email,
                 password: this.form1.password
             })
