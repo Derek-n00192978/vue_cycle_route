@@ -11,6 +11,7 @@
        <div class="row">        
         <div class="col-md-6">        
             <b-card :class="route.bike">
+                
                 <p><strong>Title:</strong>       
                     {{ route.title }}
                 </p>
@@ -34,6 +35,7 @@
         </div>
         <div class="col-md-6 float-right">
             <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
+            
         </div>
         <div class="col">
           <b-card :class="route.bike">
@@ -42,8 +44,9 @@
           <br>
           <div class="row">
           
-            <div class="col-md-6">
-              <iframe :src="ihttpURL + route.image_http" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="col-md-12">
+              <iframe :src="ihttpURL + route.image_http" width="1120" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <p>Please Note: If world map appears please refresh page to see starting location Image</p>
             </div>
           </div>
         </div>

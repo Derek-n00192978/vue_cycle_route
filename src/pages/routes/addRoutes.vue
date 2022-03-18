@@ -48,13 +48,9 @@
                         <input type="text" v-model="form3.elevation" placeholder="Elevation gain in meters" name="elevation" required class="float-right">
                         <br>
                         <label for="image_title"><b>Image title :</b></label>
-                        <input type="text" v-model="form3.image_title" placeholder="Name of Image" name="image_title" required class="float-right">
+                        <input type="text" v-model="form3.image_http" placeholder="Name of Image" name="image_http" required class="float-right">
                         <br>
-                        <!--Added to load image to database 03/03/2022-->                     
-                        <!-- <label for="image_file"><b>Choose file for image :</b></label> -->
-                        <!--<input type="keyFile" v-model="form3.image_file" placeholder="Image_file" class="float-right">-->
-                        <!--End of Load image to database 03/03/2022-->
-                        <br>
+                        
                         <label for="map_title"><b>Title of Map :</b></label>
                         <input type="text" v-model="form3.map_title" placeholder="Title of map" name="map_title" required class="float-right">
                         <br>
@@ -73,7 +69,7 @@
                         <label for="descriptionLong"><b>Description Extended :</b></label>
                         <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
                         <div class="clearfix">
-                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'/home'} ">AddRoute</router-link></button>
+                            <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'home'} ">AddRoute</router-link></button>
                         <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
                         
                         </div>
@@ -109,7 +105,7 @@ export default {
               distance: "",
               duration: "",
               elevation: "",
-              image_title: "",
+              image_http: "",
            
               map_title: "",
               map_iframe: "",
@@ -133,7 +129,7 @@ export default {
           .then(response => {
               console.log(response.data.token)
               this.$emit('login', response.data.token)
-              // this.$router.push({name: "landing"})
+               this.$router.push({name: "landing"})
               })
               .catch(error => {
                   console.log(error)
@@ -166,7 +162,7 @@ export default {
               distance: this.form3.distance,
               duration: this.form3.duration,
               elevation: this.form3.elevation,
-              image_title: this.form3.image_title,
+              image_http: this.form3.image_http,
              
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
@@ -178,6 +174,7 @@ export default {
           })
           .then(response => {
               console.log(response.data)})
+              this.$router.push({name: "home"})
               .catch(error => {
                   console.log(error)
                   console.log(error.response)

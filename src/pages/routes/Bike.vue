@@ -21,7 +21,7 @@
                 :key="route._id"
                 :class="route.bike"
             >   
-         
+                <iframe :src="ihttpURL + route.image_http" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <p><strong>Title:</strong> <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>
@@ -49,7 +49,7 @@ export default {
   data(){
       return{
            routes: [],
-           
+           ihttpURL: "https://www.google.com/maps/embed?",
            form1: {
               email: "",
               password: ""              
