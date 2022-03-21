@@ -12,7 +12,7 @@
     </h4> 
    
     <br>
-    <p class="btn btn-outline-warning" @click="cancel()">Back to all Routes</p>
+    <p class="btn btn-outline-warning" @click="cancel()">Back</p>
     
        
         <b-card-group columns>

@@ -15,9 +15,9 @@
         <br>
         <label for="validateEmail"><b>RepeatEmail</b></label>
         <input type="text" v-model="form2.validateEmail" placeholder="Repeat Email" name="validateEmail" required>
-        <br>
-        <label for="role"><b>Role</b></label>
-        <input type="text" v-model="form2.role" placeholder="Enter Role as 'user'" name="role" required>
+        
+        <!--Hidden value in form for Role is user-->
+        <input type="hidden" v-model="form2.role"  name="role" value="user">
         <br>
         <label for="psw"><b>Password</b></label>
         <input type="password" v-model="form2.password" placeholder="Enter Password" name="psw" required>
@@ -30,7 +30,7 @@
 
         <div class="clearfix">
         <button type="button" class="cancelbtn"><router-link :to="{name:'landing'} ">Cancel</router-link></button>
-        <button type="submit" class="signupbtn" @click="register()"><router-link :to="{name:'/home'} ">Sign Up</router-link></button>
+        <button type="submit" value="Submit" class="signupbtn" @click="register()"><router-link :to="{name:'home'} ">Sign Up</router-link></button>
         </div>
     </div>
     </form>    
@@ -49,7 +49,7 @@ export default {
               fname: "",
               lname: "",
               email: "",
-              role: "",
+              role: "user",
               password: ""
           }
       }

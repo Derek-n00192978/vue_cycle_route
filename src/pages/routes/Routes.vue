@@ -8,7 +8,9 @@
     </div>
     <h4 v-else>
       Here is the route to {{ route.title }}.</h4>
-       <div class="row">        
+      <p class="btn btn-outline-warning" @click="cancel()">Back to previous {{$route.params.type}}</p>
+       <div class="row"> 
+                
         <div class="col-md-6">        
             <b-card :class="route.bike">
                 
@@ -29,11 +31,12 @@
                     {{ route.latlon }}
                 </p> 
                  <p><strong>Points of Interest:</strong> {{ route.poi }} </p>         
-                <a :href='route.map_http' target="_blank">Link to Route Map</a>
-                <p><strong>Description:</strong> {{ route.description }} </p>              
+                <a :href='route.map_http' target="_blank"><strong>Link to Route Map</strong></a>
+                <!-- <p><strong>Description:</strong> {{ route.description }} </p>               -->
             </b-card>        
         </div>
         <div class="col-md-6 float-right">
+            <a :href='route.map_http' target="_blank"><strong>Link to Route Map</strong></a>
             <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
             
         </div>
@@ -101,6 +104,8 @@ export default {
                 this.route = response.data
             })
             .catch(error => console.log(error))                
+        },cancel() {
+            this.$router.go(-1)
         },
         login() {
             axios
