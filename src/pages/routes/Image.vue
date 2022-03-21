@@ -1,11 +1,15 @@
 <template>
     <b-col>
+        
         <div v-if="!loggedIn"> 
-      <h4>Please Login into your account</h4>   
-        Email: <input type="email" v-model="form1.email" /><br>
-        Password: <input type="password" v-model="form1.password" />
-      <button @click="login()">Submit</button>
-    
+          <b-card-group columns>
+            <b-card class="Login">
+              <h4>Please Login into your account</h4>   
+                  Email: <input type="email" v-model="form1.email" /><br>
+                  Password: <input type="password" v-model="form1.password" />
+              <button @click="login()">Submit</button>
+            </b-card>
+          </b-card-group>
     </div>
     <p v-else> Welcome to the Image uploader page. For this application we are going to upload our images to Cloudinary and call them back as a URL to to the web application to save upload time and sever time. This by right should be done before adding a route to the database.</p>
     <div class="row">        
@@ -57,5 +61,7 @@ export default {
 } 
 </script>
 <style>
-
+.Login {
+  border-color: rgb(255, 174, 82);
+}
 </style> 

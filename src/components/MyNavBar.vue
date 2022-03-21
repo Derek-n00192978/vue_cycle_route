@@ -52,12 +52,8 @@ export default {
   }
 };
 </script>
-
-
 <style>
 .btn-outline-info {
   margin-right: 10px;
-
 }
-
 </style>

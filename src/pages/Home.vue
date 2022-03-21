@@ -1,11 +1,14 @@
 <template>
   <b-col>
-    <div v-if="!loggedIn"> 
-      <h4>Please Login into your account</h4>   
-        Email: <input type="email" v-model="form1.email" /><br>
-        Password: <input type="password" v-model="form1.password" />
-      <button @click="login()">Submit</button>
-    
+    <div v-if="!loggedIn" class="col-md-12"> 
+      <b-card-group columns>
+        <b-card class="Login">           
+          <h4>Please Login into your account</h4>   
+              Email: <input type="email" v-model="form1.email" /><br>
+              Password: <input type="password" v-model="form1.password" />
+          <button @click="login()">Submit</button>
+        </b-card>
+      </b-card-group>
     </div>
     <h4 v-else>
       Here are some routes for you to select from, color-coded to a bike type.
@@ -18,8 +21,6 @@
       <span class="Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></span>
     </div>  
     <br>
-
-
         <b-card-group columns >
             <b-card   
                 v-for="route in routes"
@@ -29,31 +30,23 @@
                <iframe :src="ihttpURL + route.image_http" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <b-card-body >
                   <router-link :to="{ name:'/routes', params: { id: route._id}}">
-
-                 <p><strong> {{ route.title }} </strong></p>
-
+                    <p><strong> {{ route.title }} </strong></p>
                   </router-link>
                 <p><strong>Bike Required:</strong> {{ route.bike }}</p>
                 <p><strong>Distance:</strong> {{ route.distance }}</p>               
                 <p><strong>Description:</strong> {{ route.description }}</p>
                 </b-card-body>
-
             </b-card>
-      </b-card-group>
-      
+      </b-card-group>      
   </b-col>  
  </template>
-
-
 <script>
 import axios from '@/config'
 
 
 export default {
-  name: "home",
-  
-  components: {},
-    
+  name: "home",  
+  components: {},    
   props:{
     loggedIn: Boolean
   },
@@ -101,12 +94,10 @@ export default {
               this.routes = response.data
           })
           .catch(error => console.log(error))
-      }   
-      
+      }         
   }
 };
 </script>
-
 <style>
 .card {
     border-width: .5rem;
@@ -126,21 +117,19 @@ export default {
   border-color: rgb(33, 112, 14); 
   color:  rgb(33, 112, 14); 
 }
-
+.Login {
+  border-color: rgb(255, 174, 82);
+}
 span {
   border: solid 1px red;
   margin: 0px 10px 50px 0px; 
   padding: 10px 20px;
   border-radius: 5px;
 }
-
 a {
    color: inherit;
 }
 a:hover{
   color: inherit;
 }   
-
-
-
 </style>

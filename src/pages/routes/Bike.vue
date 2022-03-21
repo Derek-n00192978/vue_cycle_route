@@ -1,25 +1,25 @@
 <template>
   <b-col>
     <div v-if="!loggedIn"> 
-      <h4>Please Login into your account</h4>   
-        Email: <input type="email" v-model="form1.email" /><br>
-        Password: <input type="password" v-model="form1.password" />
-      <button @click="login()">Submit</button>
-    
+        <b-card-group columns>
+          <b-card class="Login"> 
+            <h4>Please Login into your account</h4>   
+              Email: <input type="email" v-model="form1.email" /><br>
+              Password: <input type="password" v-model="form1.password" />
+            <button @click="login()">Submit</button>
+          </b-card>
+        </b-card-group>
     </div>
     <h4 v-else>
       Here are some routes for a {{$route.params.type}} bike.
-    </h4> 
-   
+    </h4>    
     <br>
-    <p class="btn btn-outline-warning" @click="cancel()">Back</p>
-    
-       
+    <p class="btn btn-outline-warning" @click="cancel()">Back</p>         
         <b-card-group columns>
-            <b-card   
-                v-for="route in routes"
-                :key="route._id"
-                :class="route.bike"
+          <b-card   
+            v-for="route in routes"
+            :key="route._id"
+            :class="route.bike"
             >   
                 <iframe :src="ihttpURL + route.image_http" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <p><strong>Title:</strong> <router-link :to="{ name:'/routes', params: { id: route._id}}">{{ route.title }}</router-link></p>
@@ -28,15 +28,11 @@
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
                 <p><strong>Starting point:</strong> {{ route.latlon }}</p>
                 <p><strong>Description:</strong> {{ route.description }}</p>
-                <a :href='route.map_http' target="_blank">Link to Route Map</a>
-                
-              
-            </b-card>
+                <a :href='route.map_http' target="_blank">Link to Route Map</a>             
+          </b-card>
       </b-card-group>
   </b-col>  
  </template>
-
-
 <script>
 import axios from '@/config'
 export default {
@@ -89,14 +85,13 @@ export default {
               this.routes = response.data
           })
           .catch(error => console.log(error))
-      },cancel() {
+      },
+      cancel() {
             this.$router.go(-1)
-        } 
-      
+        }       
   }
 };
 </script>
-
 <style>
 .card {
   border-width: .5rem;
@@ -105,14 +100,14 @@ export default {
 .Road {
   border-color: rgb(53, 49, 49);  
 }
-
 .Gravel {
   border-color: rgb(70, 155, 155);
 }
-
 .Mountain {
   border-color: rgb(33, 112, 14); 
   color:  rgb(33, 112, 14); 
 }
-
+.Login {
+  border-color: rgb(255, 174, 82);
+}
 </style>

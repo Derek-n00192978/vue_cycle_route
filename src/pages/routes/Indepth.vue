@@ -1,10 +1,14 @@
 <template>    
   <div class="container">
     <div v-if="!loggedIn"> 
-      <h4>Please Login into your account</h4>   
-        Email: <input type="email" v-model="form1.email" /><br>
-        Password: <input type="password" v-model="form1.password" />
-      <button @click="login()">Submit</button>
+      <b-card-group columns>
+        <b-card class="Login">  
+          <h4>Please Login into your account</h4>   
+              Email: <input type="email" v-model="form1.email" /><br>
+              Password: <input type="password" v-model="form1.password" />
+          <button @click="login()">Submit</button>
+        </b-card>
+      </b-card-group>
     </div>
     <h4 v-else></h4>
       <h3 class="bold">Three of the most popular types of recreational cycling in Ireland are,</h3>
@@ -130,8 +134,7 @@ components:{
   border-color: rgb(33, 112, 14); 
   color:  rgb(33, 112, 14); 
 }
-
-
-
-
+.Login {
+  border-color: rgb(255, 174, 82);
+}
 </style>

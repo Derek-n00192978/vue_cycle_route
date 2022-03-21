@@ -1,19 +1,21 @@
 <template>
   <b-col>
     <div v-if="!loggedIn"> 
-      <h4>Please Login into your account</h4>   
-        Email: <input type="email" v-model="form1.email" /><br>
-        Password: <input type="password" v-model="form1.password" />
-      <button @click="login()">Submit</button>
+      <b-card-group columns>
+        <b-card class="Login"> 
+          <h4>Please Login into your account</h4>   
+              Email: <input type="email" v-model="form1.email" /><br>
+              Password: <input type="password" v-model="form1.password" />
+          <button @click="login()">Submit</button>
+        </b-card>
+      </b-card-group>
     </div>
     <h4 v-else>
       Here is the route to {{ route.title }}.</h4>
       <p class="btn btn-outline-warning" @click="cancel()">Back to previous {{$route.params.type}}</p>
-       <div class="row"> 
-                
+       <div class="row">                 
         <div class="col-md-6">        
-            <b-card :class="route.bike">
-                
+            <b-card :class="route.bike">                
                 <p><strong>Title:</strong>       
                     {{ route.title }}
                 </p>
@@ -53,8 +55,7 @@
             </div>
           </div>
         </div>
-       </div>
-       
+       </div>       
     </b-col>   
  </template>
 
@@ -141,6 +142,9 @@ export default {
 }
 .Mountain {
   border-color: rgb(37, 248, 37);
+}
+.Login {
+  border-color: rgb(255, 174, 82);
 }
 
 </style>
