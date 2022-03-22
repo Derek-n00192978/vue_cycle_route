@@ -17,12 +17,11 @@
         <div class="navbar-nav">
           <router-link class="nav-link" to="/home">Home</router-link>
           <router-link class="nav-link" to="/info">Indepth</router-link>
-          <!--<router-link class="nav-link" to="/routes">Routes</router-link>-->
           <router-link class="nav-link" to="/addRoute">addRoutes</router-link>
-          <router-link class="nav-link" to="/image">addImages</router-link>
-          
-          
-        </div>
+          <!--Trying to add the role to restrict the addRoute page from regular users -->
+          <!-- <router-link v-if="!admin/manger" class="nav-link" to="/home">addRoutes</router-link> -->
+          <!-- <router-link v-if="admin/manger" class="nav-link" to="/image">addImages</router-link> -->         
+          </div>
       </div>
        <button v-if="!loggedIn" @click="$router.push('/home')" class="btn btn-outline-info my-2 my-sm-0 btn-sm"  :to="{name: 'Login'}">Login</button>
       
@@ -33,6 +32,7 @@
 </template>
 
 <script>
+import axios from '@/config'
 export default {
   name: "MyNavBar",
    props: {
@@ -48,7 +48,22 @@ export default {
     },
     register(){
       this.$emit('Register')
-    }
+    },
+    getUserType() {
+          let token = localStorage.getItem('token')
+          axios
+          .get(`user/role/${this.$user.params.type}`,
+          {
+              headers: {
+                  "Authorization": `Bearer ${token}`
+              }
+          })
+          .then(response => {
+              console.log(response.data)
+              this.users = response.data
+          })
+          .catch(error => console.log(error))
+      }
   }
 };
 </script>
