@@ -110,8 +110,8 @@ export default {
 }
 
 .Gravel {
-  border-color: rgb(70, 155, 155); 
-  color: rgb(70, 155, 155);
+  border-color: rgb(150, 147, 149);
+  color: rgb(150, 147, 149);
 }
 
 .Mountain {

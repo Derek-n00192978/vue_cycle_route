@@ -14,10 +14,7 @@
         <input type="text" v-model="form2.email" placeholder="Enter Email" name="email" required>
         <br>
         <label for="validateEmail"><b>RepeatEmail</b></label>
-        <input type="text" v-model="form2.validateEmail" placeholder="Repeat Email" name="validateEmail" required>
-        
-        <!--Hidden value in form for Role is user-->
-        <input type="hidden" v-model="form2.role"  name="role" value="user">
+        <input type="text" v-model="form2.validateEmail" placeholder="Repeat Email" name="validateEmail" required>       
         <br>
         <label for="psw"><b>Password</b></label>
         <input type="password" v-model="form2.password" placeholder="Enter Password" name="psw" required>
@@ -59,8 +56,7 @@ export default {
           .post('/register', {
               fname: this.form2.fname,
               lname: this.form2.lname,
-              email: this.form2.email,
-              role: this.form2.role,
+              email: this.form2.email,              
               password: this.form2.password
           })
           .then(response => {

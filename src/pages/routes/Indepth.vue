@@ -127,12 +127,13 @@ components:{
 }
 
 .Gravel {
-  border-color: rgb(179, 43, 160);
+  border-color: rgb(150, 147, 149);
+  color: rgb(150, 147, 149);
 }
 
 .Mountain {
-  border-color: rgb(33, 112, 14); 
-  color:  rgb(33, 112, 14); 
+  border-color: rgb(87, 214, 55); 
+  color:  rgb(87, 214, 55);
 }
 .Login {
   border-color: rgb(255, 174, 82);
