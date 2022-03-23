@@ -17,7 +17,7 @@
         <div class="navbar-nav">
           <router-link class="nav-link" to="/home">Home</router-link>
           <router-link class="nav-link" to="/info">Indepth</router-link>
-          <router-link class="nav-link" to="/addRoute">addRoutes</router-link>
+          <router-link v-if="admin" class="nav-link" to="/addRoute">addRoutes</router-link>
           <!--Trying to add the role to restrict the addRoute page from regular users -->
           <!-- <router-link v-if="!admin/manger" class="nav-link" to="/home">addRoutes</router-link> -->
           <!-- <router-link v-if="admin/manger" class="nav-link" to="/image">addImages</router-link> -->         
@@ -36,7 +36,12 @@ import axios from '@/config'
 export default {
   name: "MyNavBar",
    props: {
-    loggedIn: Boolean
+    loggedIn: Boolean,
+    admin: Boolean
+  },
+  data(){
+    return{
+    }
   },
   methods:{
     logout(){      
@@ -49,8 +54,11 @@ export default {
     register(){
       this.$emit('Register')
     },
+    created(){
+  },
     getUserType() {
           let token = localStorage.getItem('token')
+
           axios
           .get(`user/role/${this.$user.params.type}`,
           {

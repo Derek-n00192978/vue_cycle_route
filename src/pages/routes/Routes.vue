@@ -141,7 +141,8 @@ export default {
   border-color: rgb(70, 155, 155);
 }
 .Mountain {
-  border-color: rgb(37, 248, 37);
+  border-color: rgb(87, 214, 55); 
+  color:  rgb(87, 214, 55);
 }
 .Login {
   border-color: rgb(255, 174, 82);

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyNavBar :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
+    <MyNavBar :admin="admin" :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
     <b-container>
       <br />
       <b-row>
@@ -23,16 +23,20 @@ export default {
   },
    data(){
     return {
-      loggedIn: false
+      loggedIn: false,
+      admin: false
     }
   },
   created(){
     localStorage.getItem('token') ? this.loggedIn =true : this.loggedIn = false
   },
   methods:{
-    setLoggedIn(token) {     
+    setLoggedIn(token, admin) {     
       this.loggedIn= true
       localStorage.setItem('token', token)
+      localStorage.setItem('admin', admin)
+      this.admin = admin
+
     },
     setLoggedOut() {
       this.loggedIn= false

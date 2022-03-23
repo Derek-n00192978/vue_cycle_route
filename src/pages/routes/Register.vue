@@ -49,7 +49,6 @@ export default {
               fname: "",
               lname: "",
               email: "",
-              role: "user",
               password: ""
           }
       }

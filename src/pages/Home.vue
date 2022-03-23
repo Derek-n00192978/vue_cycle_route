@@ -71,8 +71,8 @@ export default {
               password: this.form1.password
           })
           .then(response => {
-              console.log(response.data.token, response.data.role)
-              this.$emit('login', response.data.token, 'role', response.data.role)
+              console.log(response.data.token, response.data.admin)
+              this.$emit('login', response.data.token, response.data.admin)
               })
               .catch(error => {
                   console.log(error)
@@ -115,8 +115,8 @@ export default {
 }
 
 .Mountain {
-  border-color: rgb(33, 112, 14); 
-  color:  rgb(33, 112, 14); 
+   border-color: rgb(87, 214, 55); 
+  color:  rgb(87, 214, 55);
 }
 .Login {
   border-color: rgb(255, 174, 82);
