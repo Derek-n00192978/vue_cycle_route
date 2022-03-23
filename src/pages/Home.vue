@@ -71,9 +71,8 @@ export default {
               password: this.form1.password
           })
           .then(response => {
-              console.log(response.data.token)
-              this.$emit('login', response.data.token)
-              // this.$router.push({name: "landing"})
+              console.log(response.data.token, response.data.role)
+              this.$emit('login', response.data.token, 'role', response.data.role)
               })
               .catch(error => {
                   console.log(error)
@@ -82,6 +81,7 @@ export default {
       },
       getData() {
           let token = localStorage.getItem('token')
+          
           axios
           .get(`/route`,
           {
@@ -92,6 +92,7 @@ export default {
           .then(response => {
               console.log(response.data)
               this.routes = response.data
+              
           })
           .catch(error => console.log(error))
       }         

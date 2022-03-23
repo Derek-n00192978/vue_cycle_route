@@ -21,7 +21,7 @@
           <!--Trying to add the role to restrict the addRoute page from regular users -->
           <!-- <router-link v-if="!admin/manger" class="nav-link" to="/home">addRoutes</router-link> -->
           <!-- <router-link v-if="admin/manger" class="nav-link" to="/image">addImages</router-link> -->         
-          </div>
+        </div>
       </div>
        <button v-if="!loggedIn" @click="$router.push('/home')" class="btn btn-outline-info my-2 my-sm-0 btn-sm"  :to="{name: 'Login'}">Login</button>
       

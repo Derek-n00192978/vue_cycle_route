@@ -52,8 +52,9 @@
                             <input type="text" v-model="form3.elevation" placeholder="Elevation gain in meters" name="elevation" required class="float-right">
                             <br>
                             <label for="image_title"><b>Image title :</b></label>
-                            <input type="text" v-model="form3.image_http" placeholder="Name of Image" name="image_http" required class="float-right">
+                            <input type="text" v-model="form3.image_title" placeholder="Name of Image" name="image_title" required class="float-right">
                             <br>
+                            
                             
                             <label for="map_title"><b>Title of Map :</b></label>
                             <input type="text" v-model="form3.map_title" placeholder="Title of map" name="map_title" required class="float-right">
@@ -71,7 +72,11 @@
                             <input type="text" v-model="form3.latlon" placeholder="Latatuide/longdtuide" name="latlon" required class="float-right">
                             <br>
                             <label for="descriptionLong"><b>Description Extended :</b></label>
-                            <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right">         
+                            <input type="text" v-model="form3.descriptionLong" placeholder="Extended detailed description of route" name="descriptionLong" required class="float-right"> 
+                            <br>
+                            <label for="image_http"><b>Image Http code :</b></label>
+                            <input type="text" v-model="form3.image_http" placeholder="Name of Image" name="image_http" required class="float-right">
+                                    
                             <div class="clearfix">
                                 <button type="submit" class="signupbtn btn-block m-auto float-right" @click="addRoute()"><router-link :to="{name:'home'} ">AddRoute</router-link></button>
                             <button type="button" class="cancelbtn btn-warning btn-block m-auto"><router-link :to="{name:'landing'} ">Cancel</router-link></button>                        
@@ -105,13 +110,14 @@ export default {
               distance: "",
               duration: "",
               elevation: "",
-              image_http: "",           
+              image_title: "",           
               map_title: "",
               map_iframe: "",
               map_http: "",
               pit_stop: "",
               latlon: "",
               descriptionLong: "",
+              image_http: "",
           }
       }
   },
@@ -138,7 +144,7 @@ export default {
       getData() {
           let token = localStorage.getItem('token')
           axios
-          .get(`addRoute`,
+          .get(`route/`,
           {
               headers: {
                   "Authorization": `Bearer ${token}`
@@ -161,13 +167,14 @@ export default {
               distance: this.form3.distance,
               duration: this.form3.duration,
               elevation: this.form3.elevation,
-              image_http: this.form3.image_http,             
+              image_title: this.form3.image_title,             
               map_title: this.form3.map_title,
               map_iframe: this.form3.map_iframe,
               map_http: this.form3.map_http,
               pit_stop: this.form3.pit_stop,
               latlon: this.form3.latlon,
-              descriptionLong: this.form3.descriptionLong
+              descriptionLong: this.form3.descriptionLong,
+              image_http: this.form3.image_http
           })
           .then(response => {
               console.log(response.data)})
