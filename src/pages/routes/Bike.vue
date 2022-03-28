@@ -14,7 +14,7 @@
       Here are some routes for a {{$route.params.type}} bike.
     </h4>    
     <br>
-    <p class="btn btn-outline-warning" @click="cancel()">Back</p>         
+    <p class="btn btn-outline-warning" @click="cancel()">Back to prevoius page.</p>         
         <b-card-group columns>
           <b-card   
             v-for="route in routes"
@@ -28,7 +28,7 @@
                 <p><strong>Elevation Gain:</strong> {{ route.elevation }}</p>
                 <p><strong>Starting point:</strong> {{ route.latlon }}</p>
                 <p><strong>Description:</strong> {{ route.description }}</p>
-                <a :href='route.map_http' target="_blank">Link to Route Map</a>             
+                <a :href='route.map_http' target="_blank">Link to Map Route</a>             
           </b-card>
       </b-card-group>
   </b-col>  
@@ -45,7 +45,7 @@ export default {
   data(){
       return{
            routes: [],
-           ihttpURL: "https://www.google.com/maps/embed?",
+           ihttpURL: "https://www.google.com/maps/embed?SameSite=None?",
            form1: {
               email: "",
               password: ""              

@@ -27,7 +27,7 @@
                 :key="route._id" 
                 :class="route.bike"              
             >   
-               <iframe :src="ihttpURL + route.image_http" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               <iframe :src="ihttpURL + route.image_http " width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <b-card-body >
                   <router-link :to="{ name:'/routes', params: { id: route._id}}">
                     <p><strong> {{ route.title }} </strong></p>
@@ -53,7 +53,7 @@ export default {
   data(){
       return{
            routes: [],
-           ihttpURL: "https://www.google.com/maps/embed?",
+           ihttpURL: "https://www.google.com/maps/embed?SameSite=None?",
            form1: {
               email: "",
               password: ""              

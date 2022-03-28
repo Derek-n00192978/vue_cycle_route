@@ -12,7 +12,7 @@
     </div>
     <h4 v-else>
       Here is the route to {{ route.title }}.</h4>
-      <p class="btn btn-outline-warning" @click="cancel()">Back to previous {{$route.params.type}}</p>
+      <p class="btn btn-outline-warning" @click="cancel()">Back to previous page.{{$route.params.type}}</p>
        <div class="row">                 
         <div class="col-md-6">        
             <b-card :class="route.bike">                
@@ -21,7 +21,7 @@
                 </p>
                 <p><strong>Distance:</strong>       
                     {{ route.distance }} 
-                    <strong>Bike required:</strong>
+                    <strong>Bike Required:</strong>
                     {{ route.bike }}
                 </p>
                 <p><strong>Difficulty:</strong>

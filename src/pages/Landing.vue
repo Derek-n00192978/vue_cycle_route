@@ -32,7 +32,7 @@ export default {
   name: "landing",
   data(){
     return{
-     googleURL: "https://www.google.com/maps/d/u/0/embed?mid=",
+     googleURL: "https://www.google.com/maps/d/u/0/embed?SameSite=None&mid=",
      googleAPI:"1ftkRzZYgK2vv0kSzve3y_KhyDCre3yBK&ehbc=2E312F"
     }
   },
