@@ -1,11 +1,12 @@
 <template>
   <div>
     <MyNavBar :admin="admin" :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
-    <b-container>
+    <b-container class="bgExampleClass" fuild>
       <br />
       <b-row>
         <router-view :loggedIn="loggedIn" v-on:login="setLoggedIn" v-on:invalid="setLoggedOut" />
       </b-row>
+      <!-- <img src="@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg" width=100% height=100% image-author="David Marcu"> -->
       <MyFooter />
     </b-container>    
   </div>
@@ -49,5 +50,11 @@ export default {
 </script>
 
 <style>
-
+.bgExampleClass {
+  background-image: url('~@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg') ;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  fill-opacity: 10%;
+}
 </style>
