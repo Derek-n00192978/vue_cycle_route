@@ -61,5 +61,10 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   fill-opacity: 0.5;
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
 }
 </style>

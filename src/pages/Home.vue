@@ -16,9 +16,9 @@
     <br>
 
     <div class="route_type_navbar">
-      <span class="Gravel"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}">Gravel Routes</router-link></span>
-      <span class="Mountain"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}">Mountain Routes</router-link></span>
-      <span class="Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}">Road Routes</router-link></span>
+      <span class="Gravel"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}"><strong>Gravel Routes</strong></router-link></span>
+      <span class="Mountain"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}"><strong>Mountain Routes</strong></router-link></span>
+      <span class="Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}"><strong>Road Routes</strong></router-link></span>
     </div>  
     <br>
         <b-card-group columns >
@@ -110,8 +110,8 @@ export default {
 }
 
 .Gravel {
-  border-color: rgb(150, 147, 149);
-  color: rgb(150, 147, 149);
+  border-color: rgb(146, 33, 107);
+  color: rgb(146, 33, 107);
 }
 
 .Mountain {

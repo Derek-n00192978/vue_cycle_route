@@ -34,47 +34,35 @@
                 </p> 
                  <p><strong>Points of Interest:</strong> {{ route.poi }} </p>         
                 <a :href='route.map_http' target="_blank"><strong>Link to Route Map</strong></a>
-                <!-- <p><strong>Description:</strong> {{ route.description }} </p>               -->
             </b-card>        
         </div>
         <div class="col-md-6 float-right">
             <a :href='route.map_http' target="_blank"><strong>Link to Route Map</strong></a>
-            <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>
-            
+            <iframe :src="iframeURL + route.map_iframe"  width='465' height='478' frameborder='0'></iframe>            
         </div>
-        <div class="col">
+        <div class="col-md-12">
           <b-card :class="route.bike">
             <p><strong>Description Extended:</strong> {{ route.descriptionLong }} </p>
           </b-card> 
           <br>
-          <div class="row">
-          
+          <div class="row">          
             <div class="col-md-6">
-              <iframe :src="ihttpURL + route.image_http" width="1120" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-              <p>Please Note: If world map appears please refresh page to see starting location Image</p>
+              <iframe :src="ihttpURL + route.image_http" width="560" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <p><strong>Please Note: If world map appears please refresh page to see starting location Image</strong></p>
             </div>
-              <div class="col-md-6">       
-         <iframe :src="googleURL + googleAPI" width="540" height="590"></iframe>
-         
-      </div>
+            <div class="col-md-6">       
+              <iframe :src="googleURL + googleAPI" width="540" height="590"></iframe>
+            </div>
           </div>
         </div>
        </div>       
     </b-col>   
  </template>
-
-<!-- 
- PORT=3000
-DB_ATLAS_URL=mongodb+srv://Derek:Nissan2021@cluster0.fnk6k.mongodb.net/vue-leinster-app?retryWrites=true&w=majority
-CLOUDINARY_URL=cloudinary://189593569962748:3ma7xJG-9PvAerVTJ4oFjWks_-I@del599 -->
-
-
 <script>
 import axios from '@/config'
 export default {
   name: "routes",
   components:{
-
   },
   props:{
     loggedIn: Boolean
@@ -129,23 +117,22 @@ export default {
                     console.log(error)
                     console.log(error.response.message)
                 })
-        }
-      
+        }      
   }        
 };
 </script>
-
 <style>
 .card {
   border-width: .5rem;
   border-radius: .5rem;
 }
 .Road {
-  border-color: rgb(53, 49, 49);  
+  border-color: rgb(53, 49, 49); 
+  color:   rgb(53, 49, 49); 
 }
 .Gravel {
-  border-color: rgb(150, 147, 149);
-  color: rgb(150, 147, 149);
+  border-color: rgb(146, 33, 107);
+  color: rgb(146, 33, 107);
 }
 .Mountain {
   border-color: rgb(87, 214, 55); 
@@ -154,5 +141,4 @@ export default {
 .Login {
   border-color: rgb(255, 174, 82);
 }
-
 </style>
