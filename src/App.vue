@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <MyNavBar :admin="admin" :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
-    <b-container class="bgExampleClass" fuild>
-      <br />
+  <div> 
+      <MyNavBar :admin="admin" :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
+      <b-container class="bgExampleClass" fuild>
+      <br />      
       <b-row>
         <router-view :loggedIn="loggedIn" v-on:login="setLoggedIn" v-on:invalid="setLoggedOut" />
       </b-row>
-      <!-- <img src="@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg" width=100% height=100% image-author="David Marcu"> -->
-      <MyFooter />
+      
+    <MyFooter />
     </b-container>    
   </div>
 </template>
@@ -43,18 +43,23 @@ export default {
       this.loggedIn= false
       localStorage.removeItem('token')
       this.$router.push('/routes/register')
-      // this.$router.replace({name: 'home'})
     }  
   }
 };
 </script>
 
 <style>
+body, html {
+  height: 100%;
+}
 .bgExampleClass {
+  
+  max-width: auto;
+  height: 100%;
   background-image: url('~@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg') ;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  fill-opacity: 10%;
+  fill-opacity: 0.5;
 }
 </style>

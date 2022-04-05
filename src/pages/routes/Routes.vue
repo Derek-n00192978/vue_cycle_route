@@ -49,10 +49,14 @@
           <br>
           <div class="row">
           
-            <div class="col-md-12">
+            <div class="col-md-6">
               <iframe :src="ihttpURL + route.image_http" width="1120" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
               <p>Please Note: If world map appears please refresh page to see starting location Image</p>
             </div>
+              <div class="col-md-6">       
+         <iframe :src="googleURL + googleAPI" width="540" height="590"></iframe>
+         
+      </div>
           </div>
         </div>
        </div>       
@@ -83,6 +87,8 @@ export default {
           },
           iframeURL: "https://connect.garmin.com/modern/course/embed/",
           ihttpURL: "https://www.google.com/maps/embed?",
+          googleURL: "https://www.google.com/maps/d/u/0/embed?SameSite=None&mid=",
+          googleAPI:"1ftkRzZYgK2vv0kSzve3y_KhyDCre3yBK&ehbc=2E312F",
             route: {}
     }
   },
