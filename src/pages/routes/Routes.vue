@@ -48,10 +48,11 @@
           <div class="row">          
             <div class="col-md-6">
               <iframe :src="ihttpURL + route.image_http" width="560" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-              <p><strong>Please Note: If world map appears please refresh page to see starting location Image</strong></p>
+              <p class="white"><strong>Please Note: If world map appears please refresh page to see starting location of route.</strong></p>
             </div>
             <div class="col-md-6">       
               <iframe :src="googleURL + googleAPI" width="540" height="590"></iframe>
+              <p class="white"><strong>Please Note: When clicking on a starting location please make sure to select the correct one for the route selected.</strong></p>
             </div>
           </div>
         </div>
@@ -125,6 +126,7 @@ export default {
 .card {
   border-width: .5rem;
   border-radius: .5rem;
+  opacity: 0.7;
 }
 .Road {
   border-color: rgb(53, 49, 49); 
@@ -140,5 +142,8 @@ export default {
 }
 .Login {
   border-color: rgb(255, 174, 82);
+}
+.white{
+  color: rgb(255,255,255);
 }
 </style>

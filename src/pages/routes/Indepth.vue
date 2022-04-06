@@ -11,19 +11,23 @@
       </b-card-group>
     </div>
     <h4 v-else></h4>
-    <div class="row bg-light">
-      <h3 class="bold">Three of the most popular types of recreational cycling in Ireland are,</h3>
-      <h3>Road Cycling, Mountain Biking and Gravel Grinding.</h3>
-      <p>We recommend before you set off on any adventure on a bike you make sure of a few basic necessarys. Firstly that the bike is in good working condition.</p>
-      <p>You have informed someone of you route plan and your expected time of return. All equipment is in full working order and properly fitted ie. Helmet, waterbottle, tool bag etc. You have a working lights, front and back, a pump and spare tubes and the right equipment to change a flat tyre.</p>
-      <p>Ensure that you have the proper clothing and that you are prepared if the weather changes once out on a spin. A fully charged mobile phone with a contact known as ICE (in Case of Emergency) in you contacts in case something goes astray.</p>
-      <p>Finally enjoy your time out and about on a bike in our wonderful provience. Whatever type of cycling you get up too, respect the people you come across, say "Hi" and leave no trace behind you in the great outdoors.</p>
+    <div class="row">
+      <b-card-group>
+        <b-card>
+            <h3 class="bold">Three of the most popular types of recreational cycling in Ireland are,</h3>
+            <h3>Road Cycling, Mountain Biking and Gravel Grinding.</h3>
+            <p>We recommend before you set off on any adventure on a bike you make sure of a few basic necessarys. Firstly that the bike is in good working condition.</p>
+            <p>You have informed someone of you route plan and your expected time of return. All equipment is in full working order and properly fitted ie. Helmet, waterbottle, tool bag etc. You have a working lights, front and back, a pump and spare tubes and the right equipment to change a flat tyre.</p>
+            <p>Ensure that you have the proper clothing and that you are prepared if the weather changes once out on a spin. A fully charged mobile phone with a contact known as ICE (in Case of Emergency) in you contacts in case something goes astray.</p>
+            <p>Finally enjoy your time out and about on a bike in our wonderful provience. Whatever type of cycling you get up too, respect the people you come across, say "Hi" and leave no trace behind you in the great outdoors.</p>
+          </b-card>
+         </b-card-group>
       </div>
       <br><br>
 
         <div class="row">
-            
-            <div class="col-md-4">
+          <b-card-group columns>
+            <b-card class="Road">            
               <div class="thumbnail bg-light">
                 <h5 class="card-title">Road Cycling</h5>
                 <p class="card-text">Road cycling as the name suggest takes place on the road. Using a bike with turned down handle bars for safety in a group.</p>
@@ -33,11 +37,10 @@
                 <img src="@/assets/roadbike.png"  alt="road bike"/>
                 <br>
                 <!--Edited to find all road bike routes 28/02/2022   -->
-                <p class="btn Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}"><strong>Road Routes</strong></router-link></p>
-                
-              </div>
-            </div>    
-            <div class="col-md-4">
+                <p class="btn Road"><router-link :to="{ name:'bike', params: { type: 'Road' }}"><strong>Road Routes</strong></router-link></p>               
+              </div> 
+            </b-card>   
+            <b-card class="Mountain">
               <div class="thumbnail bg-light">
                 <h5 class="card-title">Mountain Biking</h5>
                 <p class="card-text">Mountain bikes (MTB) are bike's built with a sturdy frame, wide handle bars, broad deep-treaded tyers and suspension on the front fork as a minimum requirement.</p>
@@ -49,8 +52,9 @@
                 <!--Edited to find all mountain bike routes 28/02/2022   -->
                 <p class="btn Mountain"><router-link :to="{ name:'bike', params: { type: 'Mountain' }}"><strong>Mountain Routes</strong></router-link></p>
               </div>
-            </div>   
-            <div class="col-md-4">
+              </b-card>
+              
+              <b-card class="Gravel">
               <div class="thumbnail bg-light">
                 <h5 class="card-title">Gravel Grinding</h5>
                 <p class="card-text">Gravel bikes is very simular to a road bike with a few sutle changes. For one a gravel bike is usually longer than a compact road bike for better stability for cycling along rough terrian.</p>
@@ -61,7 +65,9 @@
                 <!--Edited to find all gravel bike routes 28/02/2022   -->
                 <p class="btn Gravel"><router-link :to="{ name:'bike', params: { type: 'Gravel' }}"><strong>Gravel Routes</strong></router-link></p>
               </div>
-            </div>          
+              </b-card>
+            
+            </b-card-group>         
         </div>
       </div>  
       
@@ -126,7 +132,11 @@ components:{
 }
 </script>
 <style>
-
+.card {
+  border-width: .5rem;
+  border-radius: .5rem;
+  opacity: 0.7;
+}
 .Road {
   border-color: rgb(53, 49, 49);
   color: rgb(53, 49, 49);  
