@@ -103,11 +103,12 @@ export default {
 .card {
     border-width: .5rem;
     border-radius: .5rem;
+    opacity: 0.7;
 }
 .Road {
   border-color: rgb(53, 49, 49);
   color:   rgb(53, 49, 49);
-  opacity: 0.7;
+
 }
 
 .Gravel {

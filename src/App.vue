@@ -1,7 +1,7 @@
 <template>
-  <div> 
+  <div class="bgExampleClass"> 
       <MyNavBar :admin="admin" :loggedIn="loggedIn" v-on:logout="setLoggedOut"/>
-      <b-container class="bgExampleClass" fuild>
+      <b-container>
       <br />      
       <b-row>
         <router-view :loggedIn="loggedIn" v-on:login="setLoggedIn" v-on:invalid="setLoggedOut" />
@@ -55,7 +55,7 @@ body, html {
 .bgExampleClass {
   
   max-width: auto;
-  height: 100%;
+  height: auto;
   background-image: url('~@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg') ;
   background-position: center bottom;
   background-repeat: no-repeat;

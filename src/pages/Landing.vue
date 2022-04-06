@@ -42,6 +42,9 @@ export default {
 };
 </script>
 <style>
-
-
+.card {
+    border-width: .5rem;
+    border-radius: .5rem;
+    opacity: 0.7;
+}
 </style>
