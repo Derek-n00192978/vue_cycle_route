@@ -107,6 +107,7 @@ export default {
 .Road {
   border-color: rgb(53, 49, 49);
   color:   rgb(53, 49, 49);
+  opacity: 0.7;
 }
 
 .Gravel {
