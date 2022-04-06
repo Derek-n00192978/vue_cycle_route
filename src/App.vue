@@ -56,7 +56,7 @@ body, html {
   
   width: 100%;
   height: auto;
-  background-image: url('~@/assets/david-marcu-VfUN94cUy4o-unsplash.jpg') ;
+  
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
